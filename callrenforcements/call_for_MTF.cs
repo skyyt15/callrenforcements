@@ -38,7 +38,7 @@ namespace callrenforcements
             }
             if (Cooldown > 0)
             {
-                response = $"Command is on Cooldown. please try later.";
+                response = $"\n{Plugin.Instance.Config.CooldownProgress}\n ({Cooldown})";
                 return false;
             }
             if (ev.Role.Team == Team.MTF)
@@ -69,11 +69,9 @@ namespace callrenforcements
                         }
                     }
                     response = Plugin.Instance.Config.NotRadioinCurrentItem;
-                    Timing.RunCoroutine(CoolDoown());
                     return false;
                 }
                 response = Plugin.Instance.Config.NotRadioinCurrentItem;
-                Timing.RunCoroutine(CoolDoown());
                 return false;
             }
             else if (ev.Role.Team == Team.CHI)
